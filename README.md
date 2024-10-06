@@ -50,9 +50,12 @@ Select a protocol filter:
 0: Custom filter (enter manually)
 ```
 -Enter the number corresponding to the protocol you want to capture.
+
 -Select 8 to capture all protocols.
+
 -Select 0 to enter a custom Berkeley Packet Filter (BPF), such as:
 tcp and port 80
+
 3- Stopping the Sniffer: To stop packet sniffing, press Ctrl+C.
 
 
