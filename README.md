@@ -1,43 +1,59 @@
-# Packet Sniffer Tool
+# Python Network Sniffer with Scapy
 
-This is a simple packet sniffer tool developed in Python using the scapy library. It captures and analyzes network packets, displaying important information such as source and destination IP addresses, protocols (TCP, UDP, ICMP, HTTP, and HTTPS), and payload data.
+This is a Python-based network sniffer built using the `scapy` library. The tool allows you to capture and analyze network packets, supporting various common protocols like TCP, UDP, ICMP, DNS, HTTP, HTTPS, and ARP. You can also define custom filters or capture all protocols.
 
 ## Features
-
--Capture and analyze network packets
--Identifies and analyzes different protocols: TCP, UDP, ICMP, HTTP, and HTTPS.
--Displays HTTP request information (method, host, and path).
--Indicates when HTTPS traffic is detected (encrypted data).
--This tool is intended strictly for educational purposes and to be used on networks where you have explicit permission to capture and analyze traffic.
+- Capture and analyze network packets.
+- Supports popular protocols like:
+  - **TCP** (Transmission Control Protocol)
+  - **UDP** (User Datagram Protocol)
+  - **ICMP** (Internet Control Message Protocol)
+  - **DNS** (Domain Name System)
+  - **HTTP** (Hypertext Transfer Protocol)
+  - **HTTPS** (Secure HTTP)
+  - **ARP** (Address Resolution Protocol)
+- User-friendly options for selecting predefined protocols or defining custom filters.
+- Captures both HTTP requests and payloads (unencrypted) and recognizes encrypted HTTPS traffic.
+- Exception handling for robust packet processing.
+- Option to capture **all traffic** without any filter.
 
 ## Requirements
 
-To run this tool, you need the following:
-Python 3.x
-scapy library
+Make sure you have Python and the following libraries installed:
 
-You can install the required Python libraries using the following command:
+- `scapy`
+
+You can install the required libraries using pip:
+
 ```bash
 pip install scapy
 ```
 
-## Usage
-
-1- Clone this repository or download the script to your local machine.
-2- Run the script with elevated privileges (root/administrator), as packet sniffing typically requires such permissions:
-```bash
-python packet_sniffer.py
+## How to Use
+Run the script using Python, and it will prompt you to select a protocol filter or provide a custom one.
+1- Start the Sniffer:
+```bash 
+network_analyzer.py
 ```
-3- The tool will start capturing and displaying packets on your network. You can stop the sniffing by pressing Ctrl + C.
+2- Choose a Protocol:
+```yaml
+Select a protocol filter:
+1: tcp
+2: udp
+3: icmp
+4: port 53
+5: tcp port 80
+6: tcp port 443
+7: arp
+8: Capture all protocols
+0: Custom filter (enter manually)
+```
+-Enter the number corresponding to the protocol you want to capture.
+-Select 8 to capture all protocols.
+-Select 0 to enter a custom Berkeley Packet Filter (BPF), such as:
+tcp and port 80
+3- Stopping the Sniffer: To stop packet sniffing, press Ctrl+C.
 
-## Code Explanation
-
--packet_callback: This function is triggered when a packet is captured. It analyzes the packet and displays relevant information.
--For TCP and UDP packets, it displays source and destination ports.
--For HTTP packets (port 80), it displays the HTTP method, host, and path.
--For HTTPS packets (port 443), it indicates that the data is encrypted and cannot be displayed.
--For all packets, it shows the source and destination IP addresses and protocol.
--Protocol Analysis: The tool identifies the protocol (TCP, UDP, ICMP, HTTP, HTTPS) using the protocol numbers and ports.
 
 ## Ethical Use Disclaimer
 
