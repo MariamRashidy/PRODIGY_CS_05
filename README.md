@@ -31,6 +31,7 @@ pip install scapy
 
 ## How to Use
 Run the script using Python, and it will prompt you to select a protocol filter or provide a custom one.
+
 1- Start the Sniffer:
 ```bash 
 network_analyzer.py
